@@ -4,7 +4,7 @@ A public, security-sanitized portfolio describing a real homelab built around Pr
 
 This repository holds the static website source. The public [Homelab documentation](https://github.com/HCxHUB-git/Homelab) is maintained separately.
 
-**Hosting:** The website is not hosted on GitHub. A separate public host will be configured later; there is no live website URL yet.
+**Live website:** https://hcxhub-git.github.io/homelab-website/ — temporarily hosted on GitHub Pages until a separate host is ready.
 
 ## Highlights
 
