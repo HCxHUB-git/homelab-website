@@ -1,10 +1,10 @@
-# HC x Hub — homelab engineering portfolio
+# HC x Hub — website source
 
 A public, security-sanitized portfolio describing a real homelab built around Proxmox VE, Linux containers, Docker, TrueNAS-backed NFS storage, private remote access, DNS, reverse proxying, monitoring and scheduled backups.
 
-The repository is intentionally documentation-first. It explains why the system is structured this way, records operating lessons and distinguishes verified evidence from assumptions.
+This repository holds the static website source. The public [Homelab documentation](https://github.com/HCxHUB-git/Homelab) is maintained separately.
 
-**Hosting:** This repository contains the website source, but does not host the public website. A separate public host will be configured later; there is no live website URL yet.
+**Hosting:** The website is not hosted on GitHub. A separate public host will be configured later; there is no live website URL yet.
 
 ## Highlights
 

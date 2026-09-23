@@ -2,7 +2,7 @@
 
 ## Scope
 
-This repository is documentation and a static GitHub Pages site. It does not contain deployable production credentials or direct access to the homelab.
+This private repository contains static website source for future hosting. It does not contain deployable production credentials or direct access to the homelab.
 
 ## Disclosure rules
 
