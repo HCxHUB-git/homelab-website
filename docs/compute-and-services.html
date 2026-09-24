@@ -109,6 +109,13 @@
 <td>All application components reported healthy; API ping succeeded</td>
 </tr>
 <tr>
+<td>Password vault</td>
+<td>Docker Compose</td>
+<td>Vaultwarden with SQLite</td>
+<td>Persistent data on the guest's local root disk; included in Proxmox guest backup</td>
+<td>Container running; HTTPS through LAN proxy and <code>/alive</code> returned success; account enrollment not yet verified</td>
+</tr>
+<tr>
 <td>Automation agent</td>
 <td>Native services</td>
 <td>Hermes Agent and an SSH tunnel service</td>
@@ -125,6 +132,7 @@
 <li><strong>Docker boundary:</strong> keeps application components replaceable and independently observable.</li>
 </ul>
 <p>Native services are used when direct host-device integration or a small single-purpose appliance is clearer than another container layer. Jellyfin, Pi-hole and WireGuard are examples.</p>
+<p>The password vault uses a dedicated unprivileged LXC, but nested Docker required an explicit AppArmor exception on that guest and a container-scoped AppArmor exception. This weakens that boundary; it is not a blanket configuration for the service fleet. The application data is local to the guest rather than on an NFS mount. Initial guest-backup creation was verified, but vault-data restore and post-enrollment backup recovery have not been tested.</p>
 <h2 id="hardware-acceleration">Hardware acceleration</h2>
 <p>The media server receives the Intel render device rather than broad host-device access. A Proxmox pre-start hook corrects device ownership before the guest starts. This solves a common reboot failure mode: the configuration may be valid while the device permissions are not.</p>
 <p>The design principle is that reboot recovery must be deterministic. A manual permission fix is not considered a stable deployment.</p>

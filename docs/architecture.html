@@ -68,6 +68,7 @@ data flows:  TrueNAS --NFS--&gt; service LXCs
 <h2 id="compute-layer">Compute layer</h2>
 <p>A single Proxmox VE node runs Linux containers as the primary isolation mechanism. This keeps overhead low while preserving separate filesystems, resource assignments and service lifecycles.</p>
 <p>Most guests are unprivileged. Workloads that need direct hardware or unusual kernel-facing behavior are treated as explicit exceptions. The media server receives only the required Intel render device, with a pre-start hook that restores device ownership after host reboot.</p>
+<p>Vaultwarden runs in a dedicated unprivileged LXC with Docker Compose, local persistent data and an explicit AppArmor exception needed for nested Docker on this Proxmox version. LAN DNS resolves its service name to Nginx Proxy Manager, which terminates HTTPS and forwards to the guest. No public DNS record was observed for that name; remote access follows the private/VPN model.</p>
 <p>An additional virtual machine exists for occasional lab use but was stopped during discovery and was not inspected from inside.</p>
 <h2 id="storage-layer">Storage layer</h2>
 <p>The host NVMe provides Proxmox system storage and an LVM-thin pool for local guest roots. A separate TrueNAS appliance uses a healthy four-disk RAIDZ1 pool and exports NFS storage for:</p>

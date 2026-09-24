@@ -24,6 +24,7 @@ The public inventory uses service roles rather than internal guest IDs or addres
 | Monitoring | Docker | Prometheus, Grafana | Local metric data | Configured Prometheus targets healthy; Grafana database OK |
 | HTTP ingress | Docker | Nginx Proxy Manager | Local proxy configuration | Container running; HTTP listener responded |
 | Photo management | Docker | Immich server, PostgreSQL, Valkey, machine-learning worker | NFS photo library | All application components reported healthy; API ping succeeded |
+| Password vault | Docker Compose | Vaultwarden with SQLite | Persistent data on the guest's local root disk; included in Proxmox guest backup | Container running; HTTPS through LAN proxy and `/alive` returned success; account enrollment not yet verified |
 | Automation agent | Native services | Hermes Agent and an SSH tunnel service | Local agent state | Guest running; no failed systemd units observed |
 
 ## Why LXC and Docker are both used
@@ -36,6 +37,8 @@ This produces two useful scales of isolation:
 - **Docker boundary:** keeps application components replaceable and independently observable.
 
 Native services are used when direct host-device integration or a small single-purpose appliance is clearer than another container layer. Jellyfin, Pi-hole and WireGuard are examples.
+
+The password vault uses a dedicated unprivileged LXC, but nested Docker required an explicit AppArmor exception on that guest and a container-scoped AppArmor exception. This weakens that boundary; it is not a blanket configuration for the service fleet. The application data is local to the guest rather than on an NFS mount. Initial guest-backup creation was verified, but vault-data restore and post-enrollment backup recovery have not been tested.
 
 ## Hardware acceleration
 

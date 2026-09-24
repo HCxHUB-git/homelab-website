@@ -10,7 +10,7 @@ This repository holds the static website source. The public [Homelab documentati
 
 - Compact Proxmox VE host with an Intel hybrid-core CPU, 32 GiB memory class and NVMe storage
 - Multiple Linux service containers and multi-container application stacks
-- Dedicated service boundaries for DNS/DHCP, VPN access, reverse proxying, media, private cloud, photo management and observability
+- Dedicated service boundaries for DNS/DHCP, VPN access, reverse proxying, media, private cloud, photo management, a Vaultwarden password vault and observability
 - Banana Pi R4/OpenWrt edge with a verified 10 GbE SFP WAN path, subscriber VLAN 100, DHCP IPv4, NAT and a 10 GbE LAN uplink
 - Pi-hole as the verified LAN DNS/DHCP authority; OpenWrt Wi-Fi disabled in favor of an external managed AP
 - Owner-supplied physical map: UGREEN CM753 unmanaged switch downstream of OpenWrt, with Proxmox/GEEKOM, TrueNAS, a TP-Link Omada AP and other clients attached

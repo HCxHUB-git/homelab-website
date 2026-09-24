@@ -165,6 +165,8 @@ The public domain **hcxhub.com** is managed through **Cloudflare** for DNS. Inte
 
 The benefits are operational: consistent service naming, centralized application ingress, backend addressing separated from user-facing URLs, and simpler day-to-day access.
 
+Vaultwarden follows that pattern: a Pi-hole LAN-only service name resolves to Nginx Proxy Manager, which uses the existing wildcard certificate for HTTPS before forwarding to its dedicated LXC. HTTPS and the application's unauthenticated health endpoint were verified; account creation and subsequent registration lock-down remain separate operational steps.
+
 **A DNS hostname does not mean public exposure.** The documented access model keeps services on private/VPN-reachable paths; hostnames are an internal naming and ingress convenience, not a statement that a service is published to the internet. No public reverse-proxy forwarding was observed on the router.
 
 ## Evidence classification

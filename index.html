@@ -64,7 +64,7 @@
           <div>
             <h3>What it provides</h3>
             <ul>
-              <li>Private cloud &amp; photo/video management</li>
+              <li>Private cloud, photo/video &amp; password management</li>
               <li>Media streaming &amp; automation</li>
               <li>DNS filtering, DHCP, remote access</li>
               <li>Monitoring &amp; observability</li>
@@ -78,8 +78,8 @@
             <thead><tr><th>Metric</th><th>Value</th></tr></thead>
             <tbody>
               <tr><td>Virtualization nodes</td><td><strong>1</strong> Proxmox VE node (single-node, no cluster HA)</td></tr>
-              <tr><td>Active Linux containers</td><td><strong>10</strong> LXCs, mostly unprivileged</td></tr>
-              <tr><td>Docker workloads</td><td><strong>22</strong> containers across dedicated LXCs</td></tr>
+              <tr><td>Active Linux containers</td><td><strong>11</strong> LXCs, mostly unprivileged</td></tr>
+              <tr><td>Docker workloads</td><td><strong>23</strong> containers across dedicated LXCs</td></tr>
               <tr><td>Storage array</td><td><strong>4 × 8 TB</strong> ZFS RAIDZ1 on a dedicated storage server</td></tr>
               <tr><td>Network backbone</td><td><strong>10 GbE</strong> SFP edge-to-LAN · 2.5 GbE storage endpoints</td></tr>
               <tr><td>Guest backups</td><td><strong>Daily</strong>, zstd-compressed, keep-last 7</td></tr>
@@ -223,7 +223,7 @@ internal backend service</pre>
           <div><h3>Networking</h3><ul><li>OpenWrt · nftables</li><li>VLAN · DHCP · NAT</li><li>WireGuard · Gluetun</li><li>Pi-hole · Nginx Proxy Manager</li><li>10 GbE · 2.5 GbE</li></ul></div>
           <div><h3>Storage</h3><ul><li>TrueNAS · ZFS · RAIDZ1</li><li>NFS · SMB</li><li>snapshots · scrubs · SMART</li></ul></div>
           <div><h3>Observability</h3><ul><li>Prometheus</li><li>Grafana</li><li>node / SMART exporters</li></ul></div>
-          <div><h3>Data &amp; application infrastructure</h3><ul><li>PostgreSQL / pgvector</li><li>MariaDB · Redis · Valkey</li></ul></div>
+          <div><h3>Data &amp; application infrastructure</h3><ul><li>PostgreSQL / pgvector</li><li>MariaDB · Redis · Valkey</li><li>Vaultwarden · SQLite</li></ul></div>
           <div><h3>Hardware acceleration</h3><ul><li>Intel Quick Sync (QSV)</li></ul></div>
           <div><h3>AI / automation</h3><ul><li>Hermes agent</li><li>Python · Node.js</li><li>LLM + tool integrations</li></ul></div>
         </div>
@@ -243,6 +243,11 @@ internal backend service</pre>
             <h3>Private cloud &amp; file sync · Nextcloud</h3>
             <p>Private file storage and synchronization across devices, with browser access. Application and user data persist on NAS-backed storage rather than inside the container root.</p>
             <span class="facts">Nextcloud · MariaDB · Redis · Docker in LXC · NFS · TrueNAS/ZFS</span>
+          </div>
+          <div class="panel">
+            <h3>Password management · Vaultwarden</h3>
+            <p>A self-hosted password-vault service in its own LXC, reached over HTTPS through the LAN reverse proxy. Docker Compose keeps its SQLite data persistent on the guest's local disk; the guest is in the daily backup job. Account onboarding and post-enrollment registration lock-down are still to be verified.</p>
+            <span class="facts">Vaultwarden · Docker Compose in unprivileged LXC · SQLite · LAN-only ingress · guest backup</span>
           </div>
           <div class="panel">
             <h3>Media streaming · Jellyfin</h3>

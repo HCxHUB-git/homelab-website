@@ -45,6 +45,7 @@ flowchart TB
     Docker --> Ingress[Reverse proxy]
     Docker --> Observe[Prometheus and Grafana]
     Docker --> Dashboard[Homarr dashboard service]
+    Docker --> Vault[Vaultwarden password vault]
 
     NAS -->|NFS datasets| Native
     NAS -->|NFS datasets| Docker
@@ -59,6 +60,8 @@ Addresses, guest IDs, MAC addresses, internal names, routes and export paths are
 A single Proxmox VE node runs Linux containers as the primary isolation mechanism. This keeps overhead low while preserving separate filesystems, resource assignments and service lifecycles.
 
 Most guests are unprivileged. Workloads that need direct hardware or unusual kernel-facing behavior are treated as explicit exceptions. The media server receives only the required Intel render device, with a pre-start hook that restores device ownership after host reboot.
+
+Vaultwarden runs in a dedicated unprivileged LXC with Docker Compose, local persistent data and an explicit AppArmor exception needed for nested Docker on this Proxmox version. LAN DNS resolves its service name to Nginx Proxy Manager, which terminates HTTPS and forwards to the guest. No public DNS record was observed for that name; remote access follows the private/VPN model.
 
 An additional virtual machine exists for occasional lab use but was stopped during discovery and was not inspected from inside.
 

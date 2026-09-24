@@ -106,6 +106,8 @@ destination: nfs_backup_storage
 
 The discovery audit verified backup artifacts, retained generations and successful recent task history.
 
+The Vaultwarden guest is now included in this daily job. Its Docker Compose data directory, including the SQLite database, resides inside the guest root, so it is in the guest-backup scope; an initial archive was created and observed. That initial archive predates any verified user enrollment. An application-aware restore of real vault data and independent/off-site protection are still outstanding.
+
 ## Recovery boundaries
 
 The TrueNAS API confirmed that no replication, cloud-sync or rsync tasks were configured at review time. No active UPS service was observed. Consequently:
