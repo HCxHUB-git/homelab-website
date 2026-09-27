@@ -20,6 +20,19 @@
     <a href="operations-and-lessons.html">Operations &amp; lessons</a>
     <a href="hardware.html">Hardware &amp; specifications</a>
     <a href="verification-and-scope.html">Verification &amp; scope</a>
+    <details class="docs-mobile-nav">
+      <summary>Browse pages</summary>
+      <nav aria-label="Mobile documentation pages">
+        <a href="./">Documentation</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="compute-and-services.html">Compute &amp; services</a>
+        <a href="storage-and-backup.html">Storage &amp; backup</a>
+        <a href="networking-and-security.html">Networking &amp; security</a>
+        <a href="operations-and-lessons.html">Operations &amp; lessons</a>
+        <a href="hardware.html">Hardware &amp; specifications</a>
+        <a href="verification-and-scope.html">Verification &amp; scope</a>
+      </nav>
+    </details>
   </nav>
   <main class="docs-main" id="content">
     <p class="gen-note">Generated from <code>docs/compute-and-services.md</code> · public-safe, evidence-backed</p>
@@ -34,7 +47,7 @@
 </ul>
 <p>The public inventory uses service roles rather than internal guest IDs or addresses.</p>
 <h2 id="service-map">Service map</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="stack-mobile">
 <thead>
 <tr>
 <th>Service boundary</th>
@@ -46,81 +59,81 @@
 </thead>
 <tbody>
 <tr>
-<td>Media automation</td>
-<td>Docker</td>
-<td>Jellyseerr, Recyclarr, Sonarr, Radarr, Prowlarr, Bazarr, qBittorrent, Gluetun, FlareSolverr, changedetection</td>
-<td>NFS media</td>
-<td>All active containers running; Gluetun healthy</td>
+<td data-label="Service boundary">Media automation</td>
+<td data-label="Runtime">Docker</td>
+<td data-label="Main components">Jellyseerr, Recyclarr, Sonarr, Radarr, Prowlarr, Bazarr, qBittorrent, Gluetun, FlareSolverr, changedetection</td>
+<td data-label="State dependency">NFS media</td>
+<td data-label="Verified health layer">All active containers running; Gluetun healthy</td>
 </tr>
 <tr>
-<td>Media server</td>
-<td>Native systemd service</td>
-<td>Jellyfin with Intel QSV</td>
-<td>NFS media</td>
-<td>Service active; HTTP health endpoint returned success</td>
+<td data-label="Service boundary">Media server</td>
+<td data-label="Runtime">Native systemd service</td>
+<td data-label="Main components">Jellyfin with Intel QSV</td>
+<td data-label="State dependency">NFS media</td>
+<td data-label="Verified health layer">Service active; HTTP health endpoint returned success</td>
 </tr>
 <tr>
-<td>Private cloud</td>
-<td>Docker</td>
-<td>Nextcloud, MariaDB, Redis</td>
-<td>NFS application data</td>
-<td>Stack running; status endpoint returned success</td>
+<td data-label="Service boundary">Private cloud</td>
+<td data-label="Runtime">Docker</td>
+<td data-label="Main components">Nextcloud, MariaDB, Redis</td>
+<td data-label="State dependency">NFS application data</td>
+<td data-label="Verified health layer">Stack running; status endpoint returned success</td>
 </tr>
 <tr>
-<td>DNS and DHCP</td>
-<td>Native systemd service</td>
-<td>Pi-hole FTL</td>
-<td>Local SQLite databases</td>
-<td>Service active; DNS and DHCP listeners observed</td>
+<td data-label="Service boundary">DNS and DHCP</td>
+<td data-label="Runtime">Native systemd service</td>
+<td data-label="Main components">Pi-hole FTL</td>
+<td data-label="State dependency">Local SQLite databases</td>
+<td data-label="Verified health layer">Service active; DNS and DHCP listeners observed</td>
 </tr>
 <tr>
-<td>Remote access</td>
-<td>Native systemd service</td>
-<td>WireGuard</td>
-<td>Local configuration</td>
-<td>Interface present and active at review time</td>
+<td data-label="Service boundary">Remote access</td>
+<td data-label="Runtime">Native systemd service</td>
+<td data-label="Main components">WireGuard</td>
+<td data-label="State dependency">Local configuration</td>
+<td data-label="Verified health layer">Interface present and active at review time</td>
 </tr>
 <tr>
-<td>Service portal</td>
-<td>Docker</td>
-<td>Homarr</td>
-<td>Local application data</td>
-<td>Current container running</td>
+<td data-label="Service boundary">Service portal</td>
+<td data-label="Runtime">Docker</td>
+<td data-label="Main components">Homarr</td>
+<td data-label="State dependency">Local application data</td>
+<td data-label="Verified health layer">Current container running</td>
 </tr>
 <tr>
-<td>Monitoring</td>
-<td>Docker</td>
-<td>Prometheus, Grafana</td>
-<td>Local metric data</td>
-<td>Configured Prometheus targets healthy; Grafana database OK</td>
+<td data-label="Service boundary">Monitoring</td>
+<td data-label="Runtime">Docker</td>
+<td data-label="Main components">Prometheus, Grafana</td>
+<td data-label="State dependency">Local metric data</td>
+<td data-label="Verified health layer">Configured Prometheus targets healthy; Grafana database OK</td>
 </tr>
 <tr>
-<td>HTTP ingress</td>
-<td>Docker</td>
-<td>Nginx Proxy Manager</td>
-<td>Local proxy configuration</td>
-<td>Container running; HTTP listener responded</td>
+<td data-label="Service boundary">HTTP ingress</td>
+<td data-label="Runtime">Docker</td>
+<td data-label="Main components">Nginx Proxy Manager</td>
+<td data-label="State dependency">Local proxy configuration</td>
+<td data-label="Verified health layer">Container running; HTTP listener responded</td>
 </tr>
 <tr>
-<td>Photo management</td>
-<td>Docker</td>
-<td>Immich server, PostgreSQL, Valkey, machine-learning worker</td>
-<td>NFS photo library</td>
-<td>All application components reported healthy; API ping succeeded</td>
+<td data-label="Service boundary">Photo management</td>
+<td data-label="Runtime">Docker</td>
+<td data-label="Main components">Immich server, PostgreSQL, Valkey, machine-learning worker</td>
+<td data-label="State dependency">NFS photo library</td>
+<td data-label="Verified health layer">All application components reported healthy; API ping succeeded</td>
 </tr>
 <tr>
-<td>Password vault</td>
-<td>Docker Compose</td>
-<td>Vaultwarden with SQLite</td>
-<td>Persistent data on the guest's local root disk; included in Proxmox guest backup</td>
-<td>Container running; HTTPS through LAN proxy and <code>/alive</code> returned success; account enrollment not yet verified</td>
+<td data-label="Service boundary">Password vault</td>
+<td data-label="Runtime">Docker Compose</td>
+<td data-label="Main components">Vaultwarden with SQLite</td>
+<td data-label="State dependency">Persistent data on the guest's local root disk; included in Proxmox guest backup</td>
+<td data-label="Verified health layer">Container running; HTTPS through LAN proxy and <code>/alive</code> returned success; account enrollment not yet verified</td>
 </tr>
 <tr>
-<td>Automation agent</td>
-<td>Native services</td>
-<td>Hermes Agent and an SSH tunnel service</td>
-<td>Local agent state</td>
-<td>Guest running; no failed systemd units observed</td>
+<td data-label="Service boundary">Automation agent</td>
+<td data-label="Runtime">Native services</td>
+<td data-label="Main components">Hermes Agent and an SSH tunnel service</td>
+<td data-label="State dependency">Local agent state</td>
+<td data-label="Verified health layer">Guest running; no failed systemd units observed</td>
 </tr>
 </tbody>
 </table></div>

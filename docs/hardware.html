@@ -20,6 +20,19 @@
     <a href="operations-and-lessons.html">Operations &amp; lessons</a>
     <a href="hardware.html">Hardware &amp; specifications</a>
     <a href="verification-and-scope.html">Verification &amp; scope</a>
+    <details class="docs-mobile-nav">
+      <summary>Browse pages</summary>
+      <nav aria-label="Mobile documentation pages">
+        <a href="./">Documentation</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="compute-and-services.html">Compute &amp; services</a>
+        <a href="storage-and-backup.html">Storage &amp; backup</a>
+        <a href="networking-and-security.html">Networking &amp; security</a>
+        <a href="operations-and-lessons.html">Operations &amp; lessons</a>
+        <a href="hardware.html">Hardware &amp; specifications</a>
+        <a href="verification-and-scope.html">Verification &amp; scope</a>
+      </nav>
+    </details>
   </nav>
   <main class="docs-main" id="content">
     <p class="gen-note">Generated from <code>docs/hardware.md</code> · public-safe, evidence-backed</p>
@@ -65,7 +78,7 @@
 <li><strong>Not verified:</strong> SSIDs, radio policy, VLAN assignment and client isolation on the AP/controller.</li>
 </ul>
 <h2 id="specification-summary">Specification summary</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="stack-mobile">
 <thead>
 <tr>
 <th>Role</th>
@@ -75,29 +88,29 @@
 </thead>
 <tbody>
 <tr>
-<td>Edge router</td>
-<td>Banana Pi BPI-R4</td>
-<td>OpenWrt · 10 GbE SFP WAN + LAN · VLAN 100</td>
+<td data-label="Role">Edge router</td>
+<td data-label="Device">Banana Pi BPI-R4</td>
+<td data-label="Key verified capability">OpenWrt · 10 GbE SFP WAN + LAN · VLAN 100</td>
 </tr>
 <tr>
-<td>Virtualization host</td>
-<td>GEEKOM mini PC</td>
-<td>i9-13900HK 14C/20T · 32 GiB · 1 TB NVMe · Intel iGPU</td>
+<td data-label="Role">Virtualization host</td>
+<td data-label="Device">GEEKOM mini PC</td>
+<td data-label="Key verified capability">i9-13900HK 14C/20T · 32 GiB · 1 TB NVMe · Intel iGPU</td>
 </tr>
 <tr>
-<td>Storage server</td>
-<td>TrueNAS (TianBei WTR PRO)</td>
-<td>N150 · 4 × 8 TB RAIDZ1 · 2 × 2.5 GbE bond</td>
+<td data-label="Role">Storage server</td>
+<td data-label="Device">TrueNAS (TianBei WTR PRO)</td>
+<td data-label="Key verified capability">N150 · 4 × 8 TB RAIDZ1 · 2 × 2.5 GbE bond</td>
 </tr>
 <tr>
-<td>Switch</td>
-<td>UGREEN CM753</td>
-<td>unmanaged downstream switching</td>
+<td data-label="Role">Switch</td>
+<td data-label="Device">UGREEN CM753</td>
+<td data-label="Key verified capability">unmanaged downstream switching</td>
 </tr>
 <tr>
-<td>Access point</td>
-<td>TP-Link Omada</td>
-<td>all Wi-Fi clients</td>
+<td data-label="Role">Access point</td>
+<td data-label="Device">TP-Link Omada</td>
+<td data-label="Key verified capability">all Wi-Fi clients</td>
 </tr>
 </tbody>
 </table></div>
