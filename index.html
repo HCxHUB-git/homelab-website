@@ -3,540 +3,293 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HC x Hub — a self-hosted infrastructure environment used for real personal services and hands-on infrastructure engineering: OpenWrt edge, Proxmox virtualization, TrueNAS/ZFS storage, monitoring and backups.">
-  <meta name="color-scheme" content="light dark">
-  <title>HC x Hub — Self-Hosted Infrastructure</title>
-  <link rel="icon" type="image/png" href="assets/hcxhub-logo.png">
+  <title>HC × HUB</title>
+  <meta name="description" content="HC × HUB — a self-hosted homelab: OpenWrt, Proxmox, TrueNAS, private services, and how they are operated.">
+  <meta name="theme-color" content="#121410">
+  <meta property="og:title" content="HC × HUB">
+  <meta property="og:description" content="A self-hosted homelab: OpenWrt, Proxmox, TrueNAS, private services, and how they are operated.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="og.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-  <script src="assets/site.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="homelab.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <div class="layout">
-    <aside class="sidebar">
-      <p class="who">
-        <a class="brand" href="#overview" aria-label="HC x Hub — overview">
-          <span class="hc">HC</span>
-          <span class="hub">HUB</span>
-          <span class="x" aria-hidden="true">×</span>
-        </a>
-        <span class="role">Self-hosted infrastructure · engineering portfolio</span>
-      </p>
-      <nav aria-label="Portfolio sections">
-        <a href="#overview">Overview</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#network">Network</a>
-        <a href="#services">Services</a>
-        <a href="#storage">Storage</a>
-        <a href="#observability">Observability</a>
-        <a href="#engineering">Engineering</a>
-        <a href="#hardware">Hardware</a>
-        <a href="#operations">Operations</a>
-        <a href="#roadmap">Roadmap</a>
-        <hr class="sep">
-        <a href="docs/">Technical documentation</a>
-      </nav>
-      <details class="mobile-sections">
-        <summary>Menu</summary>
-        <nav aria-label="Mobile portfolio sections">
-          <a href="#overview">Overview</a>
-          <a href="#services">Services</a>
-          <a href="#network">Network</a>
-          <a href="#storage">Storage</a>
-          <a href="#engineering">Engineering</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#observability">Observability</a>
-          <a href="#hardware">Hardware</a>
-          <a href="#operations">Operations</a>
-          <a href="#roadmap">Roadmap</a>
-          <a href="docs/">Technical documentation</a>
-        </nav>
-      </details>
-      <p class="side-note">Built from read-only audit evidence. No analytics, no trackers, no private topology.</p>
+  <div class="shell">
+    <header class="mobile-bar">
+      <div class="mobile-bar-row">
+        <a class="wordmark" href="#overview">HC<span>×</span>HUB</a>
+        <button type="button" class="index-btn press" data-menu aria-expanded="false">Index</button>
+      </div>
+      <nav class="mobile-nav" data-menu-panel hidden aria-label="Portfolio sections"><a href="#overview" data-nav aria-current="true">
+        <span class="nums">01</span>Overview</a><a href="#hardware" data-nav >
+        <span class="nums">02</span>Hardware</a><a href="#network" data-nav >
+        <span class="nums">03</span>Network</a><a href="#services" data-nav >
+        <span class="nums">04</span>Services</a><a href="#storage" data-nav >
+        <span class="nums">05</span>Storage</a><a href="#operations" data-nav >
+        <span class="nums">06</span>Operations</a></nav>
+    </header>
+    <aside class="rail">
+      <div>
+        <a class="wordmark" href="#overview">HC<span>×</span>HUB</a>
+        <p class="tag">Self-hosted infrastructure.</p>
+        <nav aria-label="Portfolio sections"><a href="#overview" data-nav aria-current="true">
+        <span class="nums">01</span>Overview</a><a href="#hardware" data-nav >
+        <span class="nums">02</span>Hardware</a><a href="#network" data-nav >
+        <span class="nums">03</span>Network</a><a href="#services" data-nav >
+        <span class="nums">04</span>Services</a><a href="#storage" data-nav >
+        <span class="nums">05</span>Storage</a><a href="#operations" data-nav >
+        <span class="nums">06</span>Operations</a></nav>
+      </div>
+      <p class="foot-note">OpenWrt · Proxmox<br>TrueNAS · private services</p>
     </aside>
-
-    <main class="main" id="main">
-
+    <main>
       <section id="overview">
-        <p class="kicker">HC x Hub · self-hosted infrastructure</p>
-        <h1>Real services. Real infrastructure. Real operational problems.</h1>
-        <p class="lede">A deliberately designed homelab that provides useful private services — cloud, photos, media, DNS, VPN access — while serving as a hands-on engineering laboratory across networking, virtualization, storage, security and recovery.</p>
-
-        <div class="cols">
-          <div>
-            <h3>Why it exists</h3>
-            <ul>
-              <li>Digital independence &amp; data ownership</li>
-              <li>Privacy by design</li>
-              <li>Learning by operating real infrastructure</li>
-              <li>Full-stack understanding, edge to application</li>
-              <li>Experimentation with production-grade habits</li>
-            </ul>
+        <div class="wrap">
+          <p class="mark">HC × HUB</p>
+          <h1 class="display">Real services.<br>Real infrastructure.</h1>
+          <p class="italic-line">Real operational problems.</p>
+          <p class="intro">A homelab that provides private cloud, photographs, media, DNS, and VPN access, and is run as a laboratory for networking, virtualization, storage, security, and recovery.</p>
+          <div class="split">
+            <div><h2 class="mark">Why it exists</h2><ul class="rule-list"><li>Digital independence and data ownership</li><li>Privacy by design</li><li>Learning by operating real infrastructure</li><li>Full-stack understanding, from the edge to the application</li><li>Experimentation with production-grade habits</li></ul></div>
+            <div><h2 class="mark">What it provides</h2><ul class="rule-list"><li>Private cloud, photographs, and password management</li><li>Media streaming and automation</li><li>DNS filtering, DHCP, and remote access</li><li>Monitoring and observability</li><li>Backups, automation, and an AI-assisted operations agent</li></ul></div>
           </div>
-          <div>
-            <h3>What it provides</h3>
-            <ul>
-              <li>Private cloud, photo/video &amp; password management</li>
-              <li>Media streaming &amp; automation</li>
-              <li>DNS filtering, DHCP, remote access</li>
-              <li>Monitoring &amp; observability</li>
-              <li>Backups, automation &amp; AI-assisted operations</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="table-wrap">
-          <table aria-label="Verified infrastructure metrics">
-            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
-            <tbody>
-              <tr><td>Virtualization nodes</td><td><strong>1</strong> Proxmox VE node (single-node, no cluster HA)</td></tr>
-              <tr><td>Active Linux containers</td><td><strong>11</strong> LXCs, mostly unprivileged</td></tr>
-              <tr><td>Docker workloads</td><td><strong>23</strong> containers across dedicated LXCs</td></tr>
-              <tr><td>Storage array</td><td><strong>4 × 8 TB</strong> ZFS RAIDZ1 on a dedicated storage server</td></tr>
-              <tr><td>Network backbone</td><td><strong>10 GbE</strong> SFP edge-to-LAN · 2.5 GbE storage endpoints</td></tr>
-              <tr><td>Guest backups</td><td><strong>Daily</strong>, zstd-compressed, keep-last 7</td></tr>
-            </tbody>
-          </table>
+          <dl class="metrics"><div><dt class="nums">1</dt><dd>Proxmox VE node</dd><dd>Single node, no cluster HA</dd></div><div><dt class="nums">11</dt><dd>Linux containers</dd><dd>Mostly unprivileged LXCs</dd></div><div><dt class="nums">23</dt><dd>Docker workloads</dd><dd>Across dedicated LXCs</dd></div><div><dt class="nums">4×8</dt><dd>Terabyte disks</dd><dd>ZFS RAIDZ1 on TrueNAS</dd></div><div><dt class="nums">10</dt><dd>Gigabit edge</dd><dd>SFP from the router into the LAN</dd></div><div><dt class="nums">7</dt><dd>Backup generations</dd><dd>Daily zstd guest archives</dd></div></dl>
+          <div class="stacks"><div><h2 class="mark">Virtualization</h2><ul><li>Proxmox VE</li><li>Linux</li><li>LXC, mostly unprivileged</li></ul></div><div><h2 class="mark">Containers</h2><ul><li>Docker</li><li>Docker Compose</li></ul></div><div><h2 class="mark">Networking</h2><ul><li>OpenWrt and nftables</li><li>VLAN, DHCP, NAT</li><li>WireGuard and Gluetun</li><li>Pi-hole and Nginx Proxy Manager</li><li>10 GbE and 2.5 GbE</li></ul></div><div><h2 class="mark">Storage</h2><ul><li>TrueNAS, ZFS, RAIDZ1</li><li>NFS and SMB</li><li>Snapshots, scrubs, SMART</li></ul></div><div><h2 class="mark">Data</h2><ul><li>PostgreSQL and pgvector</li><li>MariaDB, Redis, Valkey</li><li>Vaultwarden on SQLite</li></ul></div><div><h2 class="mark">Operations</h2><ul><li>Prometheus and Grafana</li><li>Intel Quick Sync</li><li>Hermes, Python, Node.js</li></ul></div></div>
         </div>
       </section>
-
-      <section id="architecture">
-        <h2>Architecture</h2>
-        <p class="section-note">Functional roles first: network edge, compute, storage, connectivity and service boundaries. Hardware models live in <a href="#hardware">Hardware &amp; specifications</a>.</p>
-
-        <pre class="diagram" role="img" aria-label="Main architecture: Internet through ISP fibre handoff and VLAN 100 into an OpenWrt edge router, then a 10 gigabit LAN to an Ethernet switch connecting a Proxmox virtualization host, a TrueNAS ZFS storage server with a 2.5 gigabit software bond, a wireless access point and other LAN clients">
-Internet
-   |
-ISP fibre / optical handoff
-   |
-VLAN 100 · DHCP IPv4
-   |
-Edge Router · OpenWrt
-   |  routing · NAT · firewall
-10 GbE LAN
-   |
-Ethernet Switch
-   |
-   +-- Virtualization Host · Proxmox VE
-   |      Linux LXC · Docker workloads
-   |      Intel QSV hardware acceleration
-   |
-   +-- Storage Server · TrueNAS / ZFS
-   |      2 × 2.5 GbE · software bond
-   |      NFS · SMB
-   |
-   +-- Wireless Access Point
-   |      Wi-Fi clients (router radios disabled)
-   |
-   `-- other LAN clients</pre>
-        <p class="diagram-caption">Main topology. The storage bond is configured on the storage server itself — no switch-side aggregation and no 5 Gb/s single-client claim.</p>
-
-        <h3>Service infrastructure</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Function</th><th>Technology</th><th>Boundary</th></tr></thead>
-            <tbody>
-              <tr><td>DNS &amp; DHCP</td><td>Pi-hole</td><td>LAN naming, leases and filtering authority (router DHCP disabled)</td></tr>
-              <tr><td>Remote access VPN</td><td>WireGuard</td><td>Dedicated LXC; edge router only DNATs the inbound UDP flow</td></tr>
-              <tr><td>HTTP reverse proxy / ingress</td><td>Nginx Proxy Manager</td><td>Centralized application ingress for service hostnames</td></tr>
-              <tr><td>Application VPN egress</td><td>Gluetun / Mullvad</td><td>Separate egress boundary for the media acquisition workflow</td></tr>
-              <tr><td>Monitoring &amp; observability</td><td>Prometheus / Grafana</td><td>Metrics from applications, storage and disk-health exporters</td></tr>
-              <tr><td>Service dashboard</td><td>Homarr</td><td>Visual entry point — an application, not network infrastructure</td></tr>
-              <tr><td>AI systems administration agent</td><td>Hermes</td><td>Experimental LLM-driven operations assistant in its own LXC</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Compute model</h3>
-        <pre class="diagram">Physical host
-   |
-Proxmox VE (single node — no cluster HA)
-   |
-Linux LXC (primary isolation; mostly unprivileged)
-   |
-   +-- native services (Jellyfin · Pi-hole · WireGuard)
-   `-- Docker workloads inside dedicated LXCs</pre>
-        <p class="section-note">LXC defines the operating boundary; Docker defines the application boundary inside it. Local NVMe/LVM-thin holds system and guest disks; bulk data lives on the storage server. <a class="more" href="docs/architecture.html">Architecture details</a></p>
-        <figure class="shot">
-          <img src="assets/screenshots/proxmox-public.png" alt="Proxmox VE node summary with CPU, memory, load and network charts" loading="lazy">
-          <figcaption>Real Proxmox VE node summary (host identifiers redacted) — live resource posture of the virtualization host.</figcaption>
-        </figure>
-      </section>
-
-      <section id="network">
-        <h2>Network</h2>
-
-        <div class="panel">
-          <h3>Replacing the ISP router · OpenWrt</h3>
-          <p><strong>Problem:</strong> the ISP-provided router limited control over the local network — owner-observed limits around DNS behavior and advanced configuration (not independently audited).</p>
-          <p><strong>Decision:</strong> replace it with a fully controlled OpenWrt edge router behind the optical handoff, reproducing the ISP WAN requirements: VLAN 100, DHCP IPv4, routing, NAT and firewalling.</p>
-          <p><strong>Result:</strong> full control over WAN configuration, routing, NAT, firewall policy, DNS/DHCP integration, port forwarding and a path to future VLAN segmentation — with Pi-hole as the LAN DNS/DHCP authority.</p>
-          <a class="more" href="docs/networking-and-security.html#replacing-the-isp-router">Design story &amp; verified state</a>
-        </div>
-
-        <div class="panel-grid">
-          <div class="panel">
-            <h3>Remote access VPN · WireGuard</h3>
-            <pre class="diagram">remote client
-   |  Internet
-Edge Router · OpenWrt
-   |  UDP DNAT (single inbound flow)
-WireGuard LXC (dedicated)
-   |
-LAN / private services</pre>
-            <p>The tunnel terminates in a dedicated container, not on the router: encrypted access to private services without exposing each backend individually.</p>
-          </div>
-          <div class="panel">
-            <h3>Application VPN egress · Gluetun / Mullvad</h3>
-            <pre class="diagram">qBittorrent
-   |
-Gluetun
-   |
-Mullvad
-   |
-Internet</pre>
-            <p>A separate application-level VPN boundary for the media acquisition workflow — the homelab itself is not routed through the VPN, and this path is distinct from WireGuard remote access.</p>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h3>Service naming &amp; application ingress · hcxhub.com</h3>
-          <pre class="diagram">service.hcxhub.com
-   |  DNS resolution (Cloudflare-managed zone · Pi-hole on LAN)
-Nginx Proxy Manager
-   |
-internal backend service</pre>
-          <p>The domain is managed through Cloudflare; internal services use meaningful hostnames (e.g. <code>proxmox.hcxhub.com</code>, <code>grafana.hcxhub.com</code>, <code>immich.hcxhub.com</code>, <code>homarr.hcxhub.com</code>) instead of memorized IP:port pairs. Nginx Proxy Manager maps those names to internal backends, keeping backend addressing separate from user-facing URLs.</p>
-          <p><strong>A DNS hostname does not mean public exposure.</strong> Services stay on private/VPN-reachable paths; naming and ingress are operational conveniences, not publication.</p>
-          <a class="more" href="docs/networking-and-security.html#service-naming-and-application-ingress">Naming &amp; ingress details</a>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Layer</th><th>Documented state</th></tr></thead>
-            <tbody>
-              <tr><td>WAN</td><td>ISP fibre · VLAN 100 · DHCP IPv4 · NAT · WAN input reject · IPv6 WAN path inactive at review</td></tr>
-              <tr><td>LAN</td><td>10 GbE backbone · flat LAN (no service VLANs yet) · router Wi-Fi radios disabled</td></tr>
-              <tr><td>DNS / DHCP</td><td>Pi-hole is the LAN authority over IPv4 and IPv6; OpenWrt LAN DHCP disabled</td></tr>
-              <tr><td>Wireless</td><td>External access point serves all Wi-Fi clients</td></tr>
-              <tr><td>Storage network</td><td>2 × 2.5 GbE endpoints in a host-side software bond (see Storage)</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><a class="more" href="docs/networking-and-security.html">Full network &amp; security documentation</a></p>
-      </section>
-
-      <section id="stack">
-        <h2>Technology stack</h2>
-        <p class="section-note">Grouped by purpose — the stack as operated, not a logo wall.</p>
-        <div class="stack-grid">
-          <div><h3>Virtualization</h3><ul><li>Proxmox VE</li><li>Linux</li><li>LXC (mostly unprivileged)</li></ul></div>
-          <div><h3>Containers</h3><ul><li>Docker</li><li>Docker Compose</li></ul></div>
-          <div><h3>Networking</h3><ul><li>OpenWrt · nftables</li><li>VLAN · DHCP · NAT</li><li>WireGuard · Gluetun</li><li>Pi-hole · Nginx Proxy Manager</li><li>10 GbE · 2.5 GbE</li></ul></div>
-          <div><h3>Storage</h3><ul><li>TrueNAS · ZFS · RAIDZ1</li><li>NFS · SMB</li><li>snapshots · scrubs · SMART</li></ul></div>
-          <div><h3>Observability</h3><ul><li>Prometheus</li><li>Grafana</li><li>node / SMART exporters</li></ul></div>
-          <div><h3>Data &amp; application infrastructure</h3><ul><li>PostgreSQL / pgvector</li><li>MariaDB · Redis · Valkey</li><li>Vaultwarden · SQLite</li></ul></div>
-          <div><h3>Hardware acceleration</h3><ul><li>Intel Quick Sync (QSV)</li></ul></div>
-          <div><h3>AI / automation</h3><ul><li>Hermes agent</li><li>Python · Node.js</li><li>LLM + tool integrations</li></ul></div>
-        </div>
-      </section>
-
-      <section id="services">
-        <h2>Services &amp; actual usage</h2>
-        <p class="section-note">Function → real usage → technologies. Not a product catalog.</p>
-
-        <div class="panel-grid">
-          <div class="panel">
-            <h3>Photo &amp; video management · Immich</h3>
-            <p>Self-hosted photo and video platform: automatic backup from mobile devices into one centralized library, with browsing, search and organization. Persistent data lives on NAS-backed storage.</p>
-            <span class="facts">Immich · PostgreSQL/pgvector · Valkey · ML worker · Docker in LXC · NFS · TrueNAS/ZFS</span>
-          </div>
-          <div class="panel">
-            <h3>Private cloud &amp; file sync · Nextcloud</h3>
-            <p>Private file storage and synchronization across devices, with browser access. Application and user data persist on NAS-backed storage rather than inside the container root.</p>
-            <span class="facts">Nextcloud · MariaDB · Redis · Docker in LXC · NFS · TrueNAS/ZFS</span>
-          </div>
-          <div class="panel">
-            <h3>Password management · Vaultwarden</h3>
-            <p>A self-hosted password-vault service in its own LXC, reached over HTTPS through the LAN reverse proxy. Docker Compose keeps its SQLite data persistent on the guest's local disk; the guest is in the daily backup job. Account onboarding and post-enrollment registration lock-down are still to be verified.</p>
-            <span class="facts">Vaultwarden · Docker Compose in unprivileged LXC · SQLite · LAN-only ingress · guest backup</span>
-          </div>
-          <div class="panel">
-            <h3>Media streaming · Jellyfin</h3>
-            <p>Centralized media library streamed to TVs, browsers, computers and mobile clients — media is served by the server, not consumed as raw files from the NAS. Server-side Intel QSV handles compatible transcoding workloads (direct playback needs no transcoding).</p>
-            <span class="facts">Jellyfin · dedicated LXC · Intel QSV render-device passthrough · NFS · TrueNAS/ZFS</span>
-          </div>
-          <div class="panel span2">
-            <h3>Service &amp; operations dashboard · Homarr</h3>
-            <p>The visual entry point into HC x Hub: one page linking infrastructure, monitoring and application services. It is an application dashboard — not part of the network layer.</p>
-            <figure class="shot">
-              <img src="assets/screenshots/homarr-public.png" alt="Homarr dashboard showing service tiles, storage, monitoring widgets and Pi-hole statistics" loading="lazy">
-              <figcaption>Real Homarr dashboard (identifiers redacted) — the environment as operated day to day.</figcaption>
-            </figure>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h3>Media automation workflow</h3>
-          <pre class="diagram">discovery / requests
-   |
-Sonarr · Radarr  (TV / film management)
-   |
-Prowlarr  (indexer management)
-   |
-qBittorrent  (acquisition)
-   |  via Gluetun / Mullvad egress
-NAS media library  (NFS · TrueNAS/ZFS)
-   |
-Jellyfin
-   |
-TV · browser · mobile clients</pre>
-          <p>The stack operates as one system: request → discovery → acquisition over the application VPN → persistent library → streaming. Each stage runs in the media-automation LXC with shared NFS storage.</p>
-        </div>
-      </section>
-
-      <section id="storage">
-        <h2>Storage architecture</h2>
-        <p class="section-note">Compute and persistent data are deliberately separated.</p>
-
-        <div class="cols">
-          <div>
-            <h3>Compute storage</h3>
-            <p>Proxmox local NVMe holds the hypervisor, swap and LVM-thin guest disks — latency-sensitive system and container workloads stay local.</p>
-          </div>
-          <div>
-            <h3>Persistent / bulk data</h3>
-            <p>A dedicated TrueNAS storage server centralizes growing datasets (media, cloud, photos, backups) and serves them over NFS/SMB. Containers stay comparatively disposable while persistent data lives independently, with its own monitoring and maintenance.</p>
-          </div>
-        </div>
-
-        <pre class="diagram" role="img" aria-label="Storage flow: Proxmox host runs Immich, Nextcloud and Jellyfin, which mount NFS from the TrueNAS storage server; the ZFS RAIDZ1 pool of four 8 terabyte disks holds media, cloud/photos and backup datasets">
-              COMPUTE
-         Proxmox VE host
-               |
-     +---------+---------+
-     |         |         |
-  Immich   Nextcloud   Jellyfin
-     |         |         |
-     +------- NFS -------+
-               |
-               v
-         STORAGE SERVER
-            TrueNAS
-               |
-           ZFS pool
-            RAIDZ1
-          4 × 8 TB
-               |
-     +---------+----------+
-     |         |          |
-   Media   Cloud/Photos  Backups
-  datasets   datasets    dataset</pre>
-        <p class="diagram-caption">Supporting mechanisms: LZ4 compression · ZFS snapshots (daily, 4-week retention) · periodic scrubs · SMART monitoring.</p>
-
-        <div class="panel-grid">
-          <div class="panel">
-            <h3>Why ZFS</h3>
-            <p>Requirements: long-term data integrity, point-in-time rollback, one manageable pool, operational visibility. ZFS answers them in one layer — end-to-end checksumming, integrated snapshots and pool management, scrubbing, compression and RAIDZ without a hardware controller.</p>
-            <p><strong>Trade-off:</strong> memory and power stability matter, and a pool is not portable like a plain filesystem.</p>
-          </div>
-          <div class="panel">
-            <h3>Why RAIDZ1</h3>
-            <p>With four disks, RAIDZ1 tolerates one disk failure while keeping three disks' worth of usable capacity — higher parity would cost capacity this environment does not yet need.</p>
-            <div class="callout">RAID IS NOT BACKUP.</div>
-            <p>RAID improves availability against disk failure. Snapshots roll back logical errors. Backups address different failures — and today primary data and local backups share one failure domain.</p>
-          </div>
-        </div>
-
-        <div class="panel-grid">
-          <div class="panel">
-            <h3>Snapshots · scrubs · SMART</h3>
-            <ul>
-              <li><strong>Snapshots</strong> — short-term rollback points (daily recursive, 4-week retention).</li>
-              <li><strong>Scrubs</strong> — periodic ZFS integrity verification against checksums.</li>
-              <li><strong>SMART</strong> — drive-health monitoring: weekly short, quarterly long tests.</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h3>NAS networking — stated limits</h3>
-            <p>Two 2.5 GbE interfaces in a TrueNAS <code>LOADBALANCE</code> software bond supply the NFS/SMB path. No 5 Gb/s single-client throughput, no switch-side aggregation and no LACP are claimed; distribution and failover behavior remain validation items.</p>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h3>Guest backups &amp; recovery boundary</h3>
-          <pre class="diagram">Proxmox VE
-   |  scheduled guest backup (snapshot mode)
-compressed archive (zstd)
-   |
-TrueNAS backup storage  (keep-last 7)</pre>
-          <p>Recent task history and retained generations were verified. This is not a complete disaster-recovery strategy: primary storage and local backups share the same physical failure domain, no off-site copy exists, and a restore drill has not been completed — all three are roadmap items.</p>
-          <a class="more" href="docs/storage-and-backup.html">Storage &amp; backup details</a>
-        </div>
-      </section>
-
-      <section id="observability">
-        <h2>Monitoring &amp; observability</h2>
-        <div class="cols">
-          <div>
-            <h3>Prometheus — metrics collection</h3>
-            <p>Scrapes application health endpoints, TrueNAS node metrics and SMART/disk-health exporters, so troubleshooting starts from evidence instead of assumptions.</p>
-          </div>
-          <div>
-            <h3>Grafana — visualization</h3>
-            <p>Dashboards over those metrics make infrastructure and storage state observable day to day. Live infrastructure panels (RAM, CPU, disk temperatures, network, memory) are already visible in the Homarr dashboard above. Configured scrape targets were healthy at review time.</p>
-          </div>
-        </div>
-        <p><a class="more" href="docs/operations-and-lessons.html">Operating model &amp; case notes</a></p>
-      </section>
-
-      <section id="hermes">
-        <h2>AI systems administration agent · Hermes</h2>
-        <div class="panel">
-          <p>Hermes runs inside a dedicated Linux LXC as an experimental, LLM-driven operations interface for HC x Hub: an AI-assisted systems administration agent with tool integrations for infrastructure-related tasks and automation. It assists operations — it does not autonomously manage the infrastructure.</p>
-          <span class="facts">dedicated Linux LXC · Linux · Python · Node.js · LLM integration · operational tool integrations</span>
-        </div>
-      </section>
-
-      <section id="engineering">
-        <h2>Engineering cases</h2>
-        <p class="section-note">Real work from this environment — audited, changed carefully, re-verified. Problem → investigation → decision → result → lesson.</p>
-
-        <div class="panel">
-          <h3>OpenWrt firewall hardening <span class="tag-verified">before/after audit</span></h3>
-          <table>
-              <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
-              <tbody>
-                <tr><td><strong>WAN zone input</strong></td><td>ACCEPT (zone override)</td><td>REJECT</td></tr>
-                <tr><td><strong>LAN zone masquerading</strong></td><td>enabled (unneeded)</td><td>disabled</td></tr>
-                <tr><td><strong>Unchanged, re-verified</strong></td><td colspan="2">WAN NAT active · LAN→WAN forwarding · WireGuard DNAT intact · Pi-hole integration working</td></tr>
-              </tbody>
-            </table>
-          <p><strong>Problem:</strong> zone-level policy overrode the safer global input default; LAN NAT added behavior with no verified requirement. <strong>Investigation:</strong> audited effective nftables state before touching anything. <strong>Decision:</strong> focused LuCI change only. <strong>Result:</strong> re-audit confirmed intended policy with routing, NAT, VPN and DNS intact. <strong>Lesson:</strong> installed security tooling is not evidence of effective policy — verify the actual rule path.</p>
-          <a class="more" href="docs/networking-and-security.html#firewall-and-nat">Read the full audit record</a>
-        </div>
-
-        <div class="panel">
-          <h3>Jellyfin GPU passthrough — deterministic after reboot</h3>
-          <pre class="diagram">Proxmox host
-   |  render device (Intel iGPU)
-Jellyfin LXC
-   |  Intel QSV transcoding
-media clients
-
-(pre-start hook restores device
-ownership on every boot)</pre>
-          <p><strong>Problem:</strong> hardware transcoding was needed without putting the media server on the hypervisor, and device permissions could break silently after a host restart. <strong>Decision:</strong> pass only the Intel render device; add an idempotent pre-start ownership hook. <strong>Result:</strong> hardware-accelerated transcoding in an isolated service; health endpoint verified after the boot path. <strong>Lesson:</strong> reboot recovery is part of the service contract.</p>
-          <a class="more" href="docs/operations-and-lessons.html#case-note-gpu-availability-after-reboot">Case notes</a>
-        </div>
-
-        <div class="panel-grid">
-          <div class="panel">
-            <h3>DNS capacity diagnosis</h3>
-            <p>Pi-hole's root filesystem hit 80% — logs didn't explain it. SQLite page accounting showed ~91% of the long-term query database was internally free but not returned to the filesystem. Resolution planned with headroom, backup and controlled compaction instead of an unsafe in-place vacuum. <strong>Lesson:</strong> logical retention and physical compaction are separate controls.</p>
-            <a class="more" href="docs/operations-and-lessons.html#case-note-dns-database-bloat">Case notes</a>
-          </div>
-          <div class="panel">
-            <h3>Backup confidence</h3>
-            <p>A schedule in a UI proves intent, not recovery. Scope, recent task status, artifacts and retention were verified independently — and the remaining gap (no restore drill, no off-site copy) is documented rather than glossed over.</p>
-            <a class="more" href="docs/operations-and-lessons.html#case-note-backup-confidence">Case notes</a>
-          </div>
-        </div>
-      </section>
-
       <section id="hardware">
-        <h2>Hardware &amp; specifications</h2>
-        <p class="section-note">The physical equipment implementing the architecture. Verified specs only; owner-supplied identification where noted.</p>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Role</th><th>Device</th><th>Key specifications</th></tr></thead>
-            <tbody>
-              <tr><td>Edge router</td><td>Banana Pi BPI-R4</td><td>ARM64 · OpenWrt · 10 GbE SFP WAN + 10 GbE SFP LAN · VLAN 100</td></tr>
-              <tr><td>Virtualization host</td><td>GEEKOM mini PC</td><td>Intel i9-13900HK 14C/20T · 32 GiB · 1 TB NVMe · Intel iGPU (QSV)</td></tr>
-              <tr><td>Storage server</td><td>TrueNAS (TianBei WTR PRO)</td><td>Intel N150 · ~16 GiB · 4 × 8 TB 7200 RPM RAIDZ1 · 512 GB NVMe system · 2 × 2.5 GbE</td></tr>
-              <tr><td>Ethernet switch</td><td>UGREEN CM753</td><td>unmanaged downstream switching layer</td></tr>
-              <tr><td>Wireless access point</td><td>TP-Link Omada</td><td>all Wi-Fi clients; router radios disabled</td></tr>
-            </tbody>
-          </table>
+        <div class="wrap">
+          <p class="nums mark">02</p>
+          <h2 class="title">Hardware</h2>
+          <p class="lede">The machines that implement the lab. Specs below are the ones verified in the public record, with owner-supplied identification where the audit could not read it from the hardware.</p>
+          <div class="plates" role="list"><button type="button" class="plate press is-on" data-machine="edge" aria-pressed="true">
+      <span class="mark">Edge router</span>
+      <span class="name">Banana Pi BPI-R4</span>
+      <span class="system">OpenWrt</span>
+      <span class="figure"><b class="nums">10</b><span class="mute">GbE SFP</span></span>
+    </button><button type="button" class="plate press" data-machine="compute" aria-pressed="false">
+      <span class="mark">Virtualization host</span>
+      <span class="name">GEEKOM mini PC</span>
+      <span class="system">Proxmox VE 8.4</span>
+      <span class="figure"><b class="nums">32</b><span class="mute">GiB</span></span>
+    </button><button type="button" class="plate press" data-machine="storage" aria-pressed="false">
+      <span class="mark">Storage server</span>
+      <span class="name">TrueNAS SCALE</span>
+      <span class="system">TianBei WTR PRO</span>
+      <span class="figure"><b class="nums">4×8</b><span class="mute">TB</span></span>
+    </button><button type="button" class="plate press" data-machine="access" aria-pressed="false">
+      <span class="mark">Switch and wireless</span>
+      <span class="name">UGREEN and Omada</span>
+      <span class="system">LAN access</span>
+      <span class="figure"><b class="nums">1</b><span class="mute">flat LAN</span></span>
+    </button></div>
+          <div class="panel" data-machine-panel="edge" >
+      <p class="mark">Edge router</p>
+      <p>The ISP router was replaced because it limited control of DNS and advanced configuration. Those limits were owner-observed and not independently audited. OpenWrt now sits behind the optical handoff and reproduces the ISP WAN requirements: VLAN 100, DHCP IPv4, routing, NAT, and firewalling. The router’s own Wi-Fi radios are disabled. An external access point serves wireless clients. The router DNATs one inbound UDP flow to WireGuard and does not terminate the VPN itself.</p>
+      <ul class="chips"><li>ARM64, Mediatek Filogic</li><li>10 GbE SFP WAN and a separate 10 GbE SFP LAN</li><li>Copper LAN ports present; no carrier at review</li><li>OpenWrt snapshot, kernel 6.6</li></ul>
+    </div><div class="panel" data-machine-panel="compute" hidden>
+      <p class="mark">Virtualization host</p>
+      <p>One Proxmox node, with no cluster high availability. LXC is the operating boundary and most containers are unprivileged. Docker is the application boundary inside dedicated LXCs. Native services — Jellyfin, Pi-hole, and WireGuard — run directly in their containers. Local NVMe holds the hypervisor, swap, and guest disks. Bulk data does not. The chassis is owner-identified; DMI strings were empty in the audit. One copper NIC is bridged on vmbr0 for management and guest traffic.</p>
+      <ul class="chips"><li>Intel i9-13900HK, 14 cores / 20 threads</li><li>1 TB Kingston NVMe, LVM-thin guest disks</li><li>Intel iGPU for Quick Sync</li><li>Linux kernel 6.8, single node</li></ul>
+    </div><div class="panel" data-machine-panel="storage" hidden>
+      <p class="mark">Storage server</p>
+      <p>TrueNAS SCALE 25.04 holds media, cloud data, photographs, and backups, and serves them over NFS and SMB. The data disks are two WD Ultrastar-class drives and two Seagate IronWolf-class drives. The two 2.5 GbE interfaces use a TrueNAS LOADBALANCE software bond configured on the storage host. That is not switch-side aggregation, not LACP, and not a claim of 5 Gb/s to a single client. Distribution and failover are still validation items.</p>
+      <ul class="chips"><li>Intel N150, about 16 GiB, non-ECC</li><li>4 × 8 TB 7200 RPM in RAIDZ1</li><li>512 GB NVMe for the system disk</li><li>2 × 2.5 GbE in a host-side bond</li></ul>
+    </div><div class="panel" data-machine-panel="access" hidden>
+      <p class="mark">Switch and wireless</p>
+      <p>The unmanaged switch is the single downstream layer between the OpenWrt LAN uplink and the compute host, the storage server, the access point, and other clients. It has no telemetry, VLAN, or aggregation capability, and none is claimed. The Omada access point provides every Wi-Fi client. SSIDs, radio policy, VLAN assignment, and client isolation on the access point were not verified.</p>
+      <ul class="chips"><li>UGREEN CM753 unmanaged switch</li><li>Downstream of the 10 GbE LAN uplink</li><li>TP-Link Omada access point</li><li>All Wi-Fi clients terminate here</li></ul>
+    </div>
         </div>
-        <p><a class="more" href="docs/hardware.html">Full hardware &amp; specifications page</a></p>
       </section>
-
+      <section id="network">
+        <div class="wrap">
+          <p class="nums mark">03</p>
+          <h2 class="title">Network and security</h2>
+          <p class="lede">The edge router, remote access, acquisition egress, and how a hostname reaches a private service.</p>
+          <div class="path-layout">
+            <div class="tabs" role="tablist" aria-label="Network paths"><button type="button" class="tab press is-on" role="tab" data-path="edge" aria-selected="true">ISP router replacement</button><button type="button" class="tab press" role="tab" data-path="remote" aria-selected="false">Remote access</button><button type="button" class="tab press" role="tab" data-path="egress" aria-selected="false">Media acquisition egress</button><button type="button" class="tab press" role="tab" data-path="ingress" aria-selected="false">Service hostnames</button></div>
+            <div><div data-path-panel="edge" >
+      <ol class="steps"><li><span>ISP fibre</span><i aria-hidden="true">→</i></li><li><span>VLAN 100</span><i aria-hidden="true">→</i></li><li><span>OpenWrt</span><i aria-hidden="true">→</i></li><li><span>NAT and firewall</span><i aria-hidden="true">→</i></li><li><span>10 GbE LAN</span></li></ol>
+      <p class="flow">OpenWrt owns WAN configuration, routing, NAT, firewall policy, DNS and DHCP integration, and port forwarding. Pi-hole is the LAN DNS and DHCP authority for IPv4 and IPv6, so OpenWrt’s LAN DHCP is disabled. WAN input rejects by default. The IPv6 WAN path was inactive at review. The LAN is still flat: there are no service VLANs yet, which leaves a path for later segmentation.</p>
+    </div><div data-path-panel="remote" hidden>
+      <ol class="steps"><li><span>Remote client</span><i aria-hidden="true">→</i></li><li><span>Internet</span><i aria-hidden="true">→</i></li><li><span>OpenWrt</span><i aria-hidden="true">→</i></li><li><span>UDP DNAT</span><i aria-hidden="true">→</i></li><li><span>WireGuard LXC</span><i aria-hidden="true">→</i></li><li><span>Private services</span></li></ol>
+      <p class="flow">WireGuard runs in a dedicated container. The edge router forwards a single inbound UDP flow and does not terminate the tunnel. Encrypted access reaches private services without publishing each backend on its own port. This path is separate from the Mullvad egress used for media acquisition.</p>
+    </div><div data-path-panel="egress" hidden>
+      <ol class="steps"><li><span>qBittorrent</span><i aria-hidden="true">→</i></li><li><span>Gluetun</span><i aria-hidden="true">→</i></li><li><span>Mullvad</span><i aria-hidden="true">→</i></li><li><span>Internet</span></li></ol>
+      <p class="flow">Gluetun is an application-level VPN boundary for the media acquisition workflow. qBittorrent’s traffic leaves through Mullvad. The rest of the homelab is not routed through that VPN. Remote access and this egress path are different tunnels with different jobs.</p>
+    </div><div data-path-panel="ingress" hidden>
+      <ol class="steps"><li><span>service.hcxhub.com</span><i aria-hidden="true">→</i></li><li><span>Cloudflare</span><i aria-hidden="true">→</i></li><li><span>Pi-hole</span><i aria-hidden="true">→</i></li><li><span>Nginx Proxy Manager</span><i aria-hidden="true">→</i></li><li><span>Internal service</span></li></ol>
+      <p class="flow">The zone is managed in Cloudflare. On the LAN, Pi-hole resolves names such as proxmox.hcxhub.com, grafana.hcxhub.com, immich.hcxhub.com, and homarr.hcxhub.com. Nginx Proxy Manager maps each hostname to an internal backend, so operators use names instead of memorized addresses and ports. Services stay on private and VPN-reachable paths. The hostname is how the service is reached inside that boundary.</p>
+    </div></div>
+          </div>
+          <div class="rows"><div class="row two"><p class="k">WAN</p><p class="mute">ISP fibre, VLAN 100, DHCP IPv4, NAT, WAN input reject. IPv6 WAN path inactive at review.</p></div><div class="row two"><p class="k">LAN</p><p class="mute">10 GbE backbone, flat LAN, no service VLANs yet. Router Wi-Fi radios disabled.</p></div><div class="row two"><p class="k">DNS and DHCP</p><p class="mute">Pi-hole is the authority for IPv4 and IPv6. OpenWrt LAN DHCP is disabled.</p></div><div class="row two"><p class="k">Wireless</p><p class="mute">External Omada access point serves all Wi-Fi clients.</p></div><div class="row two"><p class="k">Storage network</p><p class="mute">Two 2.5 GbE endpoints in a host-side software bond on TrueNAS.</p></div></div>
+        </div>
+      </section>
+      <section id="services">
+        <div class="wrap">
+          <p class="nums mark">04</p>
+          <h2 class="title">Services</h2>
+          <p class="lede">What each service is for, why it is set up this way, how it is deployed, and how a request moves through it.</p>
+          <div class="filters" role="tablist" aria-label="Service groups"><button type="button" class="chip press is-on" role="tab" data-group="All" aria-selected="true">All</button><button type="button" class="chip press" role="tab" data-group="Daily" aria-selected="false">Daily</button><button type="button" class="chip press" role="tab" data-group="Media" aria-selected="false">Media</button><button type="button" class="chip press" role="tab" data-group="Network" aria-selected="false">Network</button><button type="button" class="chip press" role="tab" data-group="Platform" aria-selected="false">Platform</button></div>
+          <div class="service-layout">
+            <div class="tabs" role="tablist" aria-label="Services"><button type="button" class="tab press is-on" role="tab" data-service="nextcloud" data-belongs="Daily" aria-selected="true">Nextcloud</button><button type="button" class="tab press" role="tab" data-service="immich" data-belongs="Daily" aria-selected="false">Immich</button><button type="button" class="tab press" role="tab" data-service="vaultwarden" data-belongs="Daily" aria-selected="false">Vaultwarden</button><button type="button" class="tab press" role="tab" data-service="jellyfin" data-belongs="Media" aria-selected="false">Jellyfin</button><button type="button" class="tab press" role="tab" data-service="automation" data-belongs="Media" aria-selected="false">Media automation</button><button type="button" class="tab press" role="tab" data-service="pihole" data-belongs="Network" aria-selected="false">Pi-hole</button><button type="button" class="tab press" role="tab" data-service="wireguard" data-belongs="Network" aria-selected="false">WireGuard</button><button type="button" class="tab press" role="tab" data-service="npm" data-belongs="Network" aria-selected="false">Nginx Proxy Manager</button><button type="button" class="tab press" role="tab" data-service="prometheus" data-belongs="Platform" aria-selected="false">Prometheus and Grafana</button><button type="button" class="tab press" role="tab" data-service="homarr" data-belongs="Platform" aria-selected="false">Homarr</button><button type="button" class="tab press" role="tab" data-service="hermes" data-belongs="Platform" aria-selected="false">Hermes</button></div>
+            <div><article data-service-panel="nextcloud" >
+      <p class="mark">Daily</p>
+      <h3 class="service-name">Nextcloud</h3>
+      <p class="purpose">Private file storage and synchronization across devices, with access from the browser.</p>
+      <div class="detail"><h4>Why</h4><p>Files stay on hardware the lab controls, in the same pattern as the rest of the private services: useful every day, and independent of a hosted drive.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Docker inside a dedicated LXC, with MariaDB and Redis beside it. Application and user data persist on NAS-backed storage over NFS, not inside the container root, so the guest can be rebuilt without taking the library with it.</p></div>
+      <div class="detail"><h4>How it works</h4><p>Clients sync to Nextcloud. The app talks to MariaDB for state and Redis for caching. File data is written to the TrueNAS dataset exported over NFS. The hostname reaches it through Nginx Proxy Manager.</p></div>
+      <ul class="chips"><li>Nextcloud</li><li>MariaDB</li><li>Redis</li><li>Docker in LXC</li><li>NFS</li><li>TrueNAS / ZFS</li></ul>
+    </article><article data-service-panel="immich" hidden>
+      <p class="mark">Daily</p>
+      <h3 class="service-name">Immich</h3>
+      <p class="purpose">Self-hosted photographs and video. Phones back up automatically into one library that can be browsed, searched, and organized.</p>
+      <div class="detail"><h4>Why</h4><p>The photo library is personal data with the same requirement as the file cloud: one place, on the NAS, not a third-party gallery.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Docker in an LXC. PostgreSQL with pgvector stores metadata and search features, Valkey handles cache and queues, and a machine-learning worker runs alongside the app. The library itself is on NFS from TrueNAS.</p></div>
+      <div class="detail"><h4>How it works</h4><p>A phone upload lands in Immich. The database records it, the ML worker generates search features, and the original files stay on the ZFS dataset. Browsing uses the internal hostname.</p></div>
+      <ul class="chips"><li>Immich</li><li>PostgreSQL / pgvector</li><li>Valkey</li><li>ML worker</li><li>Docker in LXC</li><li>NFS</li></ul>
+    </article><article data-service-panel="vaultwarden" hidden>
+      <p class="mark">Daily</p>
+      <h3 class="service-name">Vaultwarden</h3>
+      <p class="purpose">Self-hosted password vault for the accounts used across the lab and everyday devices.</p>
+      <div class="detail"><h4>Why</h4><p>Passwords are kept with the rest of the private services, reached only through the LAN reverse proxy or remote access, rather than a public signup.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Its own unprivileged LXC. Docker Compose runs Vaultwarden with SQLite on the guest’s local disk, and that guest is included in the daily Proxmox backup. Account onboarding and the post-enrollment registration lock are still to be verified.</p></div>
+      <div class="detail"><h4>How it works</h4><p>Clients connect over HTTPS. Nginx Proxy Manager presents the hostname and forwards to the container. The vault file lives on the guest disk, so recovery depends on the guest backup rather than the NAS dataset used by Nextcloud and Immich.</p></div>
+      <ul class="chips"><li>Vaultwarden</li><li>Docker Compose</li><li>Unprivileged LXC</li><li>SQLite</li><li>LAN ingress</li><li>Guest backup</li></ul>
+    </article><article data-service-panel="jellyfin" hidden>
+      <p class="mark">Media</p>
+      <h3 class="service-name">Jellyfin</h3>
+      <p class="purpose">The media library, streamed to TVs, browsers, computers, and phones.</p>
+      <div class="detail"><h4>Why</h4><p>Transcoding stays in an isolated service. The media server is not installed on the hypervisor, and only the Intel render device is passed through.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Native systemd service in its own LXC, with Intel Quick Sync. A pre-start hook restores device ownership on every host boot, because permissions could otherwise break silently after a restart. The HTTP health endpoint was verified after that boot path.</p></div>
+      <div class="detail"><h4>How it works</h4><p>The library is the NFS share on TrueNAS. Jellyfin reads it and transcodes with the iGPU when a client needs a different format. Hardware acceleration survives a reboot because the hook runs before the service starts.</p></div>
+      <ul class="chips"><li>Jellyfin</li><li>Native in LXC</li><li>Intel Quick Sync</li><li>NFS library</li><li>Pre-start hook</li></ul>
+    </article><article data-service-panel="automation" hidden>
+      <p class="mark">Media</p>
+      <h3 class="service-name">Media automation</h3>
+      <p class="purpose">Request, find, acquire, and file television and movies into the library Jellyfin already serves.</p>
+      <div class="detail"><h4>Why</h4><p>Acquisition is one workflow with its own egress. It is not how the rest of the homelab reaches the internet.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>One media-automation LXC runs the Docker stack: Jellyseerr, Sonarr, Radarr, Prowlarr, Bazarr, Recyclarr, qBittorrent, Gluetun, FlareSolverr, and changedetection. They share the NFS library on TrueNAS. At review, the containers were up and Gluetun was healthy.</p></div>
+      <div class="detail"><h4>How it works</h4><p>A request enters through Jellyseerr. Sonarr handles series and Radarr handles films. Prowlarr manages indexers, with FlareSolverr available for challenges. qBittorrent downloads through Gluetun to Mullvad. Finished files land on the NAS. Bazarr handles subtitles, Recyclarr keeps quality profiles, and Jellyfin streams the result.</p></div>
+      <ul class="chips"><li>Jellyseerr</li><li>Sonarr</li><li>Radarr</li><li>Prowlarr</li><li>qBittorrent</li><li>Gluetun</li><li>Bazarr</li><li>NFS</li></ul>
+    </article><article data-service-panel="pihole" hidden>
+      <p class="mark">Network</p>
+      <h3 class="service-name">Pi-hole</h3>
+      <p class="purpose">DNS filtering, internal naming, and DHCP for the whole LAN.</p>
+      <div class="detail"><h4>Why</h4><p>The router is no longer the place that hands out leases or answers local DNS. One service is the authority, which is what made the ISP router replaceable.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Pi-hole FTL runs as a native systemd service in an LXC, with local SQLite databases. It listens for DNS and DHCP on IPv4 and IPv6. OpenWrt’s LAN DHCP is off. The long-term query database once filled the guest disk with free SQLite pages that had not been returned to the filesystem.</p></div>
+      <div class="detail"><h4>How it works</h4><p>Clients learn Pi-hole from DHCP. Queries are filtered and, for lab hostnames, answered locally. Records that should be public resolve through the Cloudflare-managed zone. DHCP leases come from Pi-hole, not the edge router.</p></div>
+      <ul class="chips"><li>Pi-hole FTL</li><li>Native in LXC</li><li>SQLite</li><li>DNS</li><li>DHCP</li><li>IPv4 and IPv6</li></ul>
+    </article><article data-service-panel="wireguard" hidden>
+      <p class="mark">Network</p>
+      <h3 class="service-name">WireGuard</h3>
+      <p class="purpose">Encrypted remote access to the private services.</p>
+      <div class="detail"><h4>Why</h4><p>Terminating the VPN in its own container keeps the router’s job small: forward one UDP flow. Backends are not exposed one by one.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>A dedicated LXC runs WireGuard. OpenWrt DNATs the inbound UDP flow to that container and nothing else on the WAN is opened for the services behind it.</p></div>
+      <div class="detail"><h4>How it works</h4><p>A remote client brings up the tunnel. Traffic arrives at the WireGuard container, then reaches LAN services as if the client were on the network. Ingress hostnames still resolve, and the services stay off the public internet.</p></div>
+      <ul class="chips"><li>WireGuard</li><li>Dedicated LXC</li><li>UDP DNAT</li><li>OpenWrt</li></ul>
+    </article><article data-service-panel="npm" hidden>
+      <p class="mark">Network</p>
+      <h3 class="service-name">Nginx Proxy Manager</h3>
+      <p class="purpose">One ingress for application hostnames.</p>
+      <div class="detail"><h4>Why</h4><p>Backend addresses change. The name a person types should not. Centralizing that map keeps every service from publishing its own port.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Nginx Proxy Manager terminates the friendly hostnames and proxies them to internal backends. The public DNS zone is on Cloudflare. On the LAN, Pi-hole is what resolves those names.</p></div>
+      <div class="detail"><h4>How it works</h4><p>A request for immich.hcxhub.com is answered by Pi-hole, arrives at the proxy, and is forwarded to the Immich container. The same pattern covers Proxmox, Grafana, Homarr, and the other named services.</p></div>
+      <ul class="chips"><li>Nginx Proxy Manager</li><li>Cloudflare DNS</li><li>Pi-hole</li><li>Internal backends</li></ul>
+    </article><article data-service-panel="prometheus" hidden>
+      <p class="mark">Platform</p>
+      <h3 class="service-name">Prometheus and Grafana</h3>
+      <p class="purpose">Metrics for applications, the storage server, and disk health.</p>
+      <div class="detail"><h4>Why</h4><p>Troubleshooting starts from what was scraped, not from a guess about which layer failed.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Prometheus scrapes application health endpoints, TrueNAS node metrics, and SMART exporters. Grafana dashboards show infrastructure and storage state. Scrape targets were healthy at review. Alert routing and delivery are not validated yet.</p></div>
+      <div class="detail"><h4>How it works</h4><p>Exporters publish metrics. Prometheus stores them. Grafana reads Prometheus. The same panels — memory, CPU, disk temperature, network — are also surfaced on the Homarr dashboard.</p></div>
+      <ul class="chips"><li>Prometheus</li><li>Grafana</li><li>node exporter</li><li>SMART exporter</li><li>TrueNAS</li></ul>
+    </article><article data-service-panel="homarr" hidden>
+      <p class="mark">Platform</p>
+      <h3 class="service-name">Homarr</h3>
+      <p class="purpose">The visual front door: service tiles plus the widgets already used day to day.</p>
+      <div class="detail"><h4>Why</h4><p>It is an application for people opening the lab, not a network control plane. DNS, DHCP, VPN, and ingress stay in their own services.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Homarr runs as its own application behind homarr.hcxhub.com. Storage, monitoring, and Pi-hole statistics are shown as widgets on that board.</p></div>
+      <div class="detail"><h4>How it works</h4><p>Opening the hostname shows the tiles. Each tile links to the real service. The widgets read the same monitoring and DNS data the rest of the stack already collects.</p></div>
+      <ul class="chips"><li>Homarr</li><li>Hostname ingress</li><li>Pi-hole widget</li><li>Storage and monitoring widgets</li></ul>
+    </article><article data-service-panel="hermes" hidden>
+      <p class="mark">Platform</p>
+      <h3 class="service-name">Hermes</h3>
+      <p class="purpose">An experimental, LLM-driven assistant for systems administration tasks.</p>
+      <div class="detail"><h4>Why</h4><p>The lab is also where operational tooling gets tried. The assistant has to be able to help without becoming the thing that changes production on its own.</p></div>
+      <div class="detail"><h4>How it is implemented</h4><p>Hermes runs in a dedicated LXC, with Python, Node.js, an LLM integration, and tools aimed at infrastructure tasks. It is isolated from the services it might be asked about.</p></div>
+      <div class="detail"><h4>How it works</h4><p>An operator asks for help with a task. Hermes can use its tools to inspect or assist. It does not autonomously manage the infrastructure.</p></div>
+      <ul class="chips"><li>Hermes</li><li>Dedicated LXC</li><li>Python</li><li>Node.js</li><li>LLM tools</li></ul>
+    </article></div>
+          </div>
+        </div>
+      </section>
+      <section id="storage">
+        <div class="wrap">
+          <p class="nums mark">05</p>
+          <h2 class="title">Storage and backup</h2>
+          <p class="lede">Compute disks and bulk data are separate. ZFS holds the data. Proxmox guest backups land on the same storage server.</p>
+          <div class="cards"><article><h3>Compute storage</h3><p>Proxmox’s local NVMe holds the hypervisor, swap, and LVM-thin guest disks. Latency-sensitive system and container workloads stay on that disk.</p></article><article><h3>Bulk data</h3><p>TrueNAS centralizes media, cloud files, photographs, and backups, and serves them over NFS and SMB. Containers stay replaceable. The data they use does not live only inside the guest.</p></article><article><h3>Why ZFS</h3><p>The requirements were long-term integrity, point-in-time rollback, one manageable pool, and operational visibility. ZFS covers checksums, snapshots, pool management, scrubs, compression, and RAIDZ without a hardware RAID controller. The trade-off is that memory and power stability matter, and a pool is not as portable as a plain filesystem.</p></article><article><h3>Why RAIDZ1</h3><p>Four disks, one fault tolerated, and three disks of usable capacity. A wider parity layout would spend capacity this environment does not yet need. RAID keeps the pool available through a disk failure. It is not a backup. Snapshots roll back logical mistakes. Backups cover other failures. Today the primary data and the local backup copies share one physical failure domain.</p></article></div>
+          <ul class="rows"><li class="row protect"><p>Snapshots</p><p class="mute">Daily recursive ZFS snapshots, kept for four weeks, for short-term rollback.</p></li><li class="row protect"><p>Scrubs</p><p class="mute">Periodic verification of the pool against ZFS checksums.</p></li><li class="row protect"><p>SMART</p><p class="mute">Drive health: a short test every week and a long test every quarter.</p></li><li class="row protect"><p>Guest backups</p><p class="mute">Proxmox snapshot-mode archives, zstd compressed, keep-last 7, written to TrueNAS. Recent tasks and retained generations were verified.</p></li></ul>
+        </div>
+      </section>
       <section id="operations">
-        <h2>Operations</h2>
-        <p class="section-note">Installed is not operated. Health is checked along the dependency chain: listener → process → application → database → mount → network/storage.</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Area</th><th>In place (verified)</th><th>Known gap</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Monitoring</strong></td><td>Prometheus + Grafana; TrueNAS node &amp; SMART exporters; application health endpoints</td><td>Alert routing/delivery not yet validated</td></tr>
-              <tr><td><strong>Data protection</strong></td><td>Daily recursive ZFS snapshots (4-week retention); periodic scrubs; weekly short / quarterly long SMART tests</td><td>Datasets not encrypted at rest; no UPS observed</td></tr>
-              <tr><td><strong>Backup</strong></td><td>Daily Proxmox guest archives, zstd, keep-last 7, to NAS backup storage; recent tasks verified successful</td><td>No off-site copy; no completed restore drill</td></tr>
-              <tr><td><strong>Access &amp; security</strong></td><td>WAN input reject; WireGuard remote access; mostly unprivileged LXCs; VPN-separated app egress</td><td>Flat LAN; broad management listeners; password root SSH on router</td></tr>
-            </tbody>
-          </table>
+        <div class="wrap">
+          <p class="nums mark">06</p>
+          <h2 class="title">Operations</h2>
+          <p class="lede">Health is checked along the chain: listener, process, application, database, mount, then network and storage. Installed is not the same as operated.</p>
+          <div class="ops"><div class="row ops"><p class="k">Monitoring</p><p>Prometheus and Grafana, TrueNAS node and SMART exporters, application health endpoints.</p><p class="gap">Alert routing and delivery are not validated.</p></div><div class="row ops"><p class="k">Data protection</p><p>Daily ZFS snapshots for four weeks, periodic scrubs, weekly short and quarterly long SMART tests.</p><p class="gap">Datasets are not encrypted at rest. No UPS was observed.</p></div><div class="row ops"><p class="k">Backup</p><p>Daily Proxmox guest archives, zstd, keep-last 7, on NAS backup storage. Recent tasks succeeded.</p><p class="gap">No off-site copy. No completed restore drill.</p></div><div class="row ops"><p class="k">Access and security</p><p>WAN input reject, WireGuard remote access, mostly unprivileged LXCs, separate VPN egress for acquisition.</p><p class="gap">Flat LAN, broad management listeners, and password root SSH on the router.</p></div></div>
+          <h3 class="subhead">Engineering work</h3>
+          <p class="lede">Changes that were audited, applied carefully, and checked again. Problem, what was found, what was changed, and what the re-check showed.</p>
+          <div class="case-layout">
+            <div class="tabs" role="tablist" aria-label="Engineering cases"><button type="button" class="case-btn press is-on" role="tab" data-case="firewall" aria-selected="true">
+      <span class="nums mark">01</span><b>OpenWrt firewall audit</b>
+    </button><button type="button" class="case-btn press" role="tab" data-case="gpu" aria-selected="false">
+      <span class="nums mark">02</span><b>Jellyfin after a reboot</b>
+    </button><button type="button" class="case-btn press" role="tab" data-case="dns" aria-selected="false">
+      <span class="nums mark">03</span><b>Pi-hole database growth</b>
+    </button><button type="button" class="case-btn press" role="tab" data-case="backup" aria-selected="false">
+      <span class="nums mark">04</span><b>Backup confidence</b>
+    </button></div>
+            <div><article data-case-panel="firewall" >
+      <div class="detail"><h4>Problem</h4><p>Zone policy overrode the safer global input default, so WAN input was ACCEPT. LAN masquerading was enabled without a verified need.</p></div>
+      <div class="detail"><h4>Investigation</h4><p>The effective nftables rules were audited before anything was changed.</p></div>
+      <div class="detail"><h4>Decision</h4><p>A focused LuCI change: WAN input to REJECT, and LAN masquerading off. Routing, NAT, the WireGuard DNAT, and Pi-hole were left in place and checked again.</p></div>
+      <div class="detail"><h4>Result</h4><p>The re-audit matched the intended policy. WAN NAT, LAN-to-WAN forwarding, the VPN forward, and DNS still worked.</p></div>
+      <div class="detail"><h4>Lesson</h4><p>Installed security tooling is not evidence of effective policy. The rule path has to be read.</p></div>
+    </article><article data-case-panel="gpu" hidden>
+      <div class="detail"><h4>Problem</h4><p>Hardware transcoding was required without placing the media server on the hypervisor, and render-device permissions could fail silently after a host restart.</p></div>
+      <div class="detail"><h4>Investigation</h4><p>The failure showed up on the boot path, not while the host had been left running.</p></div>
+      <div class="detail"><h4>Decision</h4><p>Pass through only the Intel render device, and restore its ownership with an idempotent pre-start hook on every boot.</p></div>
+      <div class="detail"><h4>Result</h4><p>Quick Sync transcoding runs in the isolated LXC. The health endpoint succeeded after the boot path.</p></div>
+      <div class="detail"><h4>Lesson</h4><p>Reboot recovery is part of the service, not a follow-up task.</p></div>
+    </article><article data-case-panel="dns" hidden>
+      <div class="detail"><h4>Problem</h4><p>The Pi-hole root filesystem hit 80 percent. Logs did not explain it.</p></div>
+      <div class="detail"><h4>Investigation</h4><p>SQLite page accounting showed about 91 percent of the long-term query database was internally free and had not been returned to the filesystem.</p></div>
+      <div class="detail"><h4>Decision</h4><p>Treat retention and compaction as different controls. Plan headroom, a backup, and a controlled compaction instead of an unsafe in-place vacuum.</p></div>
+      <div class="detail"><h4>Result</h4><p>The capacity problem was identified as free pages inside the database file, not as a logging leak.</p></div>
+      <div class="detail"><h4>Lesson</h4><p>Logical retention and physical compaction are separate controls.</p></div>
+    </article><article data-case-panel="backup" hidden>
+      <div class="detail"><h4>Problem</h4><p>A backup job configured in the interface only proves that a job exists.</p></div>
+      <div class="detail"><h4>Investigation</h4><p>Scope, recent task status, the archives themselves, and retention were checked independently of the schedule screen.</p></div>
+      <div class="detail"><h4>Decision</h4><p>Keep the daily zstd guest backup, seven generations, on the NAS — and write down what that does not cover.</p></div>
+      <div class="detail"><h4>Result</h4><p>Recent successful tasks and retained generations were verified. There is still no restore drill and no off-site copy. Primary data and these backups share one site.</p></div>
+      <div class="detail"><h4>Lesson</h4><p>A schedule proves intent. Recovery is a restore that has been done.</p></div>
+    </article></div>
+          </div>
+          <footer class="foot">
+            <p>Public portfolio of the HC × HUB homelab. Addresses, keys, and secret configuration are not published.</p>
+            <a href="https://github.com/HCxHUB-git/homelab-website">Documentation repository</a>
+          </footer>
         </div>
       </section>
-
-      <section id="roadmap">
-        <h2>Roadmap</h2>
-        <p class="section-note">Current state, next improvements, and things that still need validation — kept honestly separate. Nothing planned is presented as running.</p>
-
-        <div class="panel-grid three">
-          <div class="panel">
-            <h3>Current</h3>
-            <ul>
-              <li>Virtualized Linux service fleet</li>
-              <li>Dedicated ZFS storage</li>
-              <li>Local snapshots + guest backups</li>
-              <li>Metrics &amp; storage-health telemetry</li>
-              <li>WireGuard remote access</li>
-              <li>10 GbE routed backbone</li>
-              <li>Reject-by-default WAN input</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h3>Next</h3>
-            <ul>
-              <li>Independent off-site backup copy</li>
-              <li>Documented restore drill</li>
-              <li>Alert routing &amp; delivery</li>
-              <li>Policy-enforced network segmentation</li>
-              <li>Centralized authentication / SSO</li>
-              <li>UPS integration</li>
-              <li>Ansible; Kubernetes &amp; cloud experiments; AI infrastructure</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h3>To validate</h3>
-            <ul>
-              <li>TrueNAS bond failover behavior</li>
-              <li>Downstream switch behavior</li>
-              <li>External AP security/VLAN policy</li>
-              <li>Application-consistent DB recovery</li>
-              <li>Internet-side exposure testing</li>
-              <li>Power-loss recovery procedure</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h3>Every public claim has a verification boundary</h3>
-          <p>The documentation records what was verified directly, what is inferred, what the owner supplied, and what remains unverified — including items this portfolio deliberately does not claim.</p>
-          <a class="more" href="docs/verification-and-scope.html">Verification &amp; scope</a>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-        <p><strong>HC x Hub</strong> · self-hosted infrastructure portfolio</p>
-        <p>Plain HTML/CSS · no framework, analytics or trackers · sanitized public-safe content</p>
-      </footer>
     </main>
   </div>
+  <script src="homelab.js"></script>
 </body>
 </html>
